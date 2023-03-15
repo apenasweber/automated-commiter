@@ -15,7 +15,7 @@ def commit_and_push():
     date_string = now.strftime("%Y-%m-%d %H:%M:%S")
 
     # Adiciona a data ao arquivo main.txt
-    with open(path, "a") as file:
+    with open(path, "w") as file:
         file.write(f"\nData de atualização: {date_string}\n")
 
     print("Arquivo atualizado com sucesso!")
@@ -28,7 +28,7 @@ def commit_and_push():
     print("Mudanças enviadas ao github com sucesso!")
 
 # Agenda a execução do código a cada 10 minutos
-schedule.every(1).minutes.do(commit_and_push)
+schedule.every(10).minutes.do(commit_and_push)
 
 while True:
     schedule.run_pending()
